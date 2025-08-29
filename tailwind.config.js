@@ -48,8 +48,10 @@ const config = {
       const codeSm = theme("fontSize.sm");
       const codeLg = theme("fontSize.base");
 
+      const lg = theme("screens.lg"); // 예: "1024px"
+
+      // 1) 기본(모바일)
       addBase({
-        /* 모바일 기본(≤1023px) */
         ".text-title": {
           fontSize: titleSm[0],
           lineHeight: titleSm[1].lineHeight,
@@ -76,9 +78,11 @@ const config = {
           fontWeight: "400",
           fontFamily: mono,
         },
+      });
 
-        /* PC(≥lg:1024px)에서 오버라이드 */
-        "@screen lg": {
+      // 2) 데스크탑(뷰포트 ≥ lg) — @screen 대신 명시적 미디어쿼리
+      addBase({
+        [`@media (min-width: ${lg})`]: {
           ".text-title": {
             fontSize: titleLg[0],
             lineHeight: titleLg[1].lineHeight,
