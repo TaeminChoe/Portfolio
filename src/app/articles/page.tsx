@@ -1,92 +1,39 @@
-// ZIEN Dark Theme v1.0.0 — Articles Index
-// Path: app/article/page.tsx
-// Date: 2025-09-16
-// Status: Draft (Lists article details and links to /app/article/[slug])
-//
 "use client";
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Types
-// ──────────────────────────────────────────────────────────────────────────────
-
-type ArticleMeta = {
-  href: string; // URL slug -> /article/[slug]
-  title: string; // Article title
-  date: string; // ISO string: '2025-08-21'
-  summary: string; // Short description
-  tags: string[]; // keywords
-  readingTime: string; // e.g., '6 min read'
-  status?: "published" | "draft";
-};
-
-// ──────────────────────────────────────────────────────────────────────────────
-// Mock data (replace with real content source)
-// ──────────────────────────────────────────────────────────────────────────────
-
-const ARTICLES: ArticleMeta[] = [
-  {
-    href: "cypress-e2e-process",
-    title: "Cypress 기반 E2E 테스트와 GitHub Actions 자동화",
-    date: "2025-09-16",
-    summary:
-      "Cypress와 GitHub Actions를 활용하여 로그인 보안 환경변수, 자동화된 E2E 테스트, 경고 기반 품질 게이트를 적용한 사례. 배포 전 테스트를 통해 사람의 실수를 줄이고, 항상 동일한 퀄리티를 유지할 수 있도록 개선한 과정을 다룹니다.",
-    tags: ["Next.js", "Cypress", "CI/CD", "GitHub Actions"],
-    readingTime: "5 min read",
-    status: "published",
-  },
-  // 앞으로 여기에 새로운 article들을 계속 추가
-  // {
-  //   href: "다른-article-slug",
-  //   title: "다른 아티클 제목",
-  //   date: "YYYY-MM-DD",
-  //   summary: "짧은 설명...",
-  //   tags: ["태그1", "태그2"],
-  //   readingTime: "X min read",
-  //   status: "draft" | "published",
-  // },
-];
-
-// ──────────────────────────────────────────────────────────────────────────────
-// Utilities
-// ──────────────────────────────────────────────────────────────────────────────
-
-function cx(...cls: (string | false | null | undefined)[]) {
-  return cls.filter(Boolean).join(" ");
-}
-
-function formatDate(iso: string) {
-  const [y, m, d] = iso.split("-");
-  return `${y}.${m}.${d}`; // 2025.09.16
-}
+import { ARTICLES } from "@/constants";
+import { cx, formatDate } from "@/utils";
+import KeywordTag from "@/components/common/KeywordTag";
 
 // Unique tag list
 const ALL_TAGS = Array.from(new Set(ARTICLES.flatMap((a) => a.tags))).sort();
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Page
-// ──────────────────────────────────────────────────────────────────────────────
-
 export default function ArticlesIndexPage() {
-  const [q, setQ] = useState("");
+  const [query, setQuery] = useState("");
   const [tag, setTag] = useState<string | null>(null);
   const [showDrafts, setShowDrafts] = useState(false);
 
-  const items = useMemo(() => {
-    const query = q.trim().toLowerCase();
-    return ARTICLES.filter((a) => (showDrafts ? true : a.status !== "draft"))
-      .filter((a) => !tag || a.tags.includes(tag))
-      .filter((a) => {
-        if (!query) return true;
-        return (
-          a.title.toLowerCase().includes(query) ||
-          a.summary.toLowerCase().includes(query) ||
-          a.tags.some((t) => t.toLowerCase().includes(query))
-        );
-      })
-      .sort((a, b) => b.date.localeCompare(a.date));
-  }, [q, tag, showDrafts]);
+  const articleList = useMemo(() => {
+    const queryString = query.trim().toLowerCase();
+    return (
+      ARTICLES
+        // draft || published filter
+        .filter((a) => (showDrafts ? true : a.status !== "draft"))
+        // tag filter
+        .filter((a) => !tag || a.tags.includes(tag))
+        // query filter
+        .filter((a) => {
+          if (!queryString) return true;
+          return (
+            a.title.toLowerCase().includes(queryString) ||
+            a.summary.toLowerCase().includes(queryString) ||
+            a.tags.some((t) => t.toLowerCase().includes(queryString))
+          );
+        })
+        .sort((a, b) => b.date.localeCompare(a.date))
+    );
+  }, [query, tag, showDrafts]);
 
   return (
     <main className="bg-background text-text min-h-dvh">
@@ -103,8 +50,8 @@ export default function ArticlesIndexPage() {
               <span className="sr-only">Search articles</span>
               <input
                 type="text"
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by title, tag, summary"
                 className={cx(
                   "border-border bg-background text-body text-text w-full rounded-md border px-3 py-2",
@@ -159,38 +106,33 @@ export default function ArticlesIndexPage() {
 
         {/* Articles list */}
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6" role="list">
-          {items.map((a) => (
-            <li key={a.href}>
+          {articleList.map((article) => (
+            <li key={article.href}>
               <Link
-                href={`/articles/${a.href}`}
+                href={`/articles/${article.href}`}
                 className={cx(
                   "border-border bg-surface block w-full rounded-2xl border p-5 lg:p-6",
                   "focus:ring-primary/50 transition-colors transition-transform hover:-translate-y-0.5 hover:shadow-lg focus:ring-2 focus:outline-none",
                 )}
-                aria-label={`${a.title} detail`}
+                aria-label={`${article.title} detail`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h2 className="text-body text-text font-semibold">{a.title}</h2>
+                    <h2 className="text-body text-text font-semibold">{article.title}</h2>
                     <p className="text-description text-subtext mt-0.5">
-                      {formatDate(a.date)} · {a.readingTime}
+                      {formatDate(article.date)} · {article.readingTime}
                     </p>
                   </div>
-                  {a.status === "draft" && (
+                  {article.status === "draft" && (
                     <span className="border-border bg-background/40 text-subtext rounded-full border px-2 py-0.5 text-xs">
                       draft
                     </span>
                   )}
                 </div>
-                <p className="text-body text-subtext mt-2">{a.summary}</p>
+                <p className="text-body text-subtext mt-2">{article.summary}</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {a.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="border-border bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs"
-                    >
-                      {t}
-                    </span>
+                  {article.tags.map((tag) => (
+                    <KeywordTag key={tag}>{tag}</KeywordTag>
                   ))}
                 </div>
                 <p className="text-description text-primary mt-2">Read →</p>
@@ -198,10 +140,6 @@ export default function ArticlesIndexPage() {
             </li>
           ))}
         </ul>
-
-        <footer className="text-description text-subtext mt-8" aria-label="Footer">
-          <p>Built with Next.js(App Router) + TypeScript + Tailwind — ZIEN Dark Theme v1.0.0</p>
-        </footer>
       </div>
     </main>
   );

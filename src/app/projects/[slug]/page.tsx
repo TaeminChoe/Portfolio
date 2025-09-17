@@ -9,16 +9,16 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // src/constants/articles 폴더의 파일명을 slug로 변환
-  const articlesDir = path.join(process.cwd(), "src", "constants", "articles");
-  const files = fs.readdirSync(articlesDir);
+  // src/constants/projects 폴더의 파일명을 slug로 변환
+  const projectsDir = path.join(process.cwd(), "src", "constants", "projects");
+  const files = fs.readdirSync(projectsDir);
   return files.map((file) => ({
     slug: file.replace(/\.md$/, ""),
   }));
 }
 
-export default function ArticlePage({ params }: Props) {
-  const filePath = path.join(process.cwd(), "src", "constants", "articles", `${params.slug}.md`);
+export default function ProjectPage({ params }: Props) {
+  const filePath = path.join(process.cwd(), "src", "constants", "projects", `${params.slug}.md`);
   const content = fs.readFileSync(filePath, "utf-8");
 
   return (

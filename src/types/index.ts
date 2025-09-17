@@ -14,3 +14,47 @@ export interface CareerItem {
   contributions: string[];
   techStack: string[];
 }
+
+export interface ArticleItem {
+  href: string;
+  title: string;
+  date: string; // '2025-08-21'
+  summary: string;
+  tags: string[]; // keywords
+  readingTime: string; // '6 min read'
+  status?: "published" | "draft";
+}
+
+export interface PulginItem {
+  href: string;
+  name: string;
+  summary: string;
+  tags: string[];
+  demoName: string;
+}
+
+export interface ComponentSection {
+  key: string;
+  title: string;
+  summary?: string;
+  Demo: React.ComponentType; // inline demo component
+  code: string;
+}
+
+export interface ComponentItem {
+  name: string;
+  summary: string;
+  tags: string[]; // keywords
+  demoName: string; // maps to /demo/[demoName]
+  sections: ComponentSection[];
+}
+
+export interface ProjectItem {
+  href: string; // URL slug -> /project/[slug]
+  name: string;
+  role: string; // e.g., FE Engineer
+  period: string; // e.g., 2024.01–2025.06
+  summary: string;
+  tags: string[]; // keywords
+  status?: "published" | "draft";
+}

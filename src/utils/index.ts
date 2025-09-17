@@ -7,3 +7,12 @@ export function parseStart(period: string): Date {
   const month = Number(m[2]) - 1; // 0-based
   return new Date(year, month, 1);
 }
+
+export function cx(...cls: (string | false | null | undefined)[]) {
+  return cls.filter(Boolean).join(" ");
+}
+
+export function formatDate(iso: string) {
+  const [y, m, d] = iso.split("-");
+  return `${y}.${m}.${d}`; // 2025.09.16
+}

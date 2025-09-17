@@ -1,7 +1,7 @@
 "use client";
-import CareerCard from "@/components/common/CareerCard";
 import { CAREER } from "@/constants/career";
 import { parseStart } from "@/utils";
+import CareerCard from "@/components/common/CareerCard";
 
 /** 최신 시작일 순 정렬 */
 const sorted = [...CAREER].sort(

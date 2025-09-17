@@ -1,10 +1,3 @@
-// ZIEN Dark Theme v1.0.0 — Global 404 Page (Simplified)
-// Path: app/not-found.tsx
-// Date: 2025-09-16
-// Notes:
-// - Server Component by default (no 'use client')
-// - Triggered when next/navigation.notFound() is called or route not matched
-
 import Link from "next/link";
 
 export default function NotFound() {
