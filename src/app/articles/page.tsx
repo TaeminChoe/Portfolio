@@ -12,7 +12,7 @@ import Link from "next/link";
 // ──────────────────────────────────────────────────────────────────────────────
 
 type ArticleMeta = {
-  slug: string; // URL slug -> /article/[slug]
+  href: string; // URL slug -> /article/[slug]
   title: string; // Article title
   date: string; // ISO string: '2025-08-21'
   summary: string; // Short description
@@ -27,32 +27,25 @@ type ArticleMeta = {
 
 const ARTICLES: ArticleMeta[] = [
   {
-    slug: "next-app-router-a11y",
-    title: "App Router에서 접근성 패턴 정리",
-    date: "2025-08-21",
-    summary: "페이지 전환, 모달, 포커스 트랩 등 접근성 패턴을 정리합니다.",
-    tags: ["Next.js", "A11y", "Modal"],
-    readingTime: "7 min read",
-    status: "published",
-  },
-  {
-    slug: "cypress-routing-ci",
-    title: "Cypress로 라우팅 가용성 CI 만들기",
-    date: "2025-09-05",
-    summary: "배포 전 라우팅 경로를 자동 검증하여 회귀를 줄이는 방법.",
-    tags: ["Cypress", "CI", "QA"],
+    href: "cypress-e2e-process",
+    title: "Cypress 기반 E2E 테스트와 GitHub Actions 자동화",
+    date: "2025-09-16",
+    summary:
+      "Cypress와 GitHub Actions를 활용하여 로그인 보안 환경변수, 자동화된 E2E 테스트, 경고 기반 품질 게이트를 적용한 사례. 배포 전 테스트를 통해 사람의 실수를 줄이고, 항상 동일한 퀄리티를 유지할 수 있도록 개선한 과정을 다룹니다.",
+    tags: ["Next.js", "Cypress", "CI/CD", "GitHub Actions"],
     readingTime: "5 min read",
     status: "published",
   },
-  {
-    slug: "design-tokens-dark-theme",
-    title: "다크 테마 토큰 설계 가이드",
-    date: "2025-06-30",
-    summary: "background/surface/text 계층과 상호작용 토큰을 정리.",
-    tags: ["Design", "Tokens", "Dark"],
-    readingTime: "6 min read",
-    status: "draft",
-  },
+  // 앞으로 여기에 새로운 article들을 계속 추가
+  // {
+  //   href: "다른-article-slug",
+  //   title: "다른 아티클 제목",
+  //   date: "YYYY-MM-DD",
+  //   summary: "짧은 설명...",
+  //   tags: ["태그1", "태그2"],
+  //   readingTime: "X min read",
+  //   status: "draft" | "published",
+  // },
 ];
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -167,9 +160,9 @@ export default function ArticlesIndexPage() {
         {/* Articles list */}
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6" role="list">
           {items.map((a) => (
-            <li key={a.slug}>
+            <li key={a.href}>
               <Link
-                href={`/articles/${a.slug}`}
+                href={`/articles/${a.href}`}
                 className={cx(
                   "border-border bg-surface block w-full rounded-2xl border p-5 lg:p-6",
                   "focus:ring-primary/50 transition-colors transition-transform hover:-translate-y-0.5 hover:shadow-lg focus:ring-2 focus:outline-none",
