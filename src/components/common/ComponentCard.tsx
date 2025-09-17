@@ -13,7 +13,7 @@ export default function ComponentCard({ label, className, children }: Props) {
       aria-label={label}
       className={cx(
         "bg-surface border-border block w-full rounded-2xl border p-5 lg:p-6",
-        "transition-colors transition-transform hover:-translate-y-0.5 hover:shadow-lg",
+        "transition-colors transition-transform",
         className,
       )}
     >

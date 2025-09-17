@@ -37,18 +37,10 @@ export const ARTICLES: ArticleItem[] = [
 
 export const PLUGINS: PulginItem[] = [
   {
-    href: "use-modal",
-    name: "useModal",
-    summary: "모달 상태/제어 훅과 접근성 패턴. 코어/예시 분리.",
-    tags: ["hook", "modal"],
-    demoName: "use-modal",
-  },
-  {
-    href: "badge",
-    name: "Badge",
-    summary: "토큰만 사용하는 배지 컴포넌트.",
-    tags: ["ui", "token"],
-    demoName: "badge",
+    href: "use-alert",
+    name: "useAlert",
+    summary: "일반적으로 사용되는 Alert을 코드로 표출할 수 있는 구조로 작성한 Context모델",
+    tags: ["ui", "alert"],
   },
 ];
 

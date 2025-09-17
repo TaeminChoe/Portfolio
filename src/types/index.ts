@@ -30,7 +30,6 @@ export interface PulginItem {
   name: string;
   summary: string;
   tags: string[];
-  demoName: string;
 }
 
 export interface ComponentSection {
@@ -45,7 +44,7 @@ export interface ComponentItem {
   name: string;
   summary: string;
   tags: string[]; // keywords
-  demoName: string; // maps to /demo/[demoName]
+  demoName?: string; // maps to /demo/[demoName]
   sections: ComponentSection[];
 }
 

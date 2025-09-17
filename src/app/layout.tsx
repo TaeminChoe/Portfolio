@@ -4,6 +4,8 @@ import { Inter, Noto_Sans_KR, JetBrains_Mono } from "next/font/google";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Provider from "@/components/common/Provider";
+import "highlight.js/styles/github-dark.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,11 +54,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`bg-background text-text selection:bg-primary/20 selection:text-text flex min-h-dvh flex-col antialiased`}
       >
-        <Header />
-        <main id="main" className="mx-auto max-w-[1024px] px-4 py-8 lg:px-6">
-          {children}
-        </main>
-        <Footer />
+        <Provider>
+          <Header />
+          <main id="main" className="mx-auto max-w-[1024px] px-4 py-8 lg:px-6">
+            {children}
+          </main>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

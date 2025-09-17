@@ -44,10 +44,6 @@ export default function PluginsOverviewPage() {
             </li>
           ))}
         </ul>
-
-        <footer className="text-description text-subtext mt-8">
-          <p>Built with Next.js(App Router) + TypeScript + Tailwind — ZIEN Dark Theme v1.0.0</p>
-        </footer>
       </div>
     </main>
   );
