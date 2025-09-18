@@ -57,3 +57,8 @@ export interface ProjectItem {
   tags: string[]; // keywords
   status?: "published" | "draft";
 }
+
+export interface SkillItem {
+  name: string;
+  level: "High" | "Medium" | "Low";
+}

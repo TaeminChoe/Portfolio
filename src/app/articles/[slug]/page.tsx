@@ -1,4 +1,5 @@
 import fs from "fs";
+import { notFound } from "next/navigation";
 import path from "path";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -16,13 +17,24 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ArticlePage({ params }: Props) {
-  const filePath = path.join(process.cwd(), "src", "constants", "articles", `${params.slug}.md`);
-  const content = fs.readFileSync(filePath, "utf-8");
+async function loadMarkdown(slug: string) {
+  const filePath = path.join(process.cwd(), "src", "constants", "articles", `${slug}.md`);
+  try {
+    const raw = await fs.readFileSync(filePath, "utf-8");
+    return raw;
+  } catch (err: any) {
+    if (err?.code === "ENOENT") return null;
+    throw err;
+  }
+}
+
+export default async function ArticlePage({ params }: Props) {
+  const contents = await loadMarkdown(params.slug);
+  if (!contents) notFound();
 
   return (
     <div className="prose prose-invert mx-auto max-w-[800px] px-4 py-10">
-      <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{content}</ReactMarkdown>
+      <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{contents}</ReactMarkdown>
     </div>
   );
 }

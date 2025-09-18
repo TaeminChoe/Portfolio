@@ -1,10 +1,9 @@
+import { useState } from "react";
+
 import { CareerItem } from "@/types";
+import { BuildingIcon, CalendarIcon, ChevronIcon } from "../icons";
 import TechBadge from "./TechBadge";
-import IconCalendar from "../icons/IconCalendar";
-import IconBuilding from "../icons/IconBuilding";
 import CareerTypeBlock from "./CareerTypeBlock";
-import { useEffect, useMemo, useRef, useState } from "react";
-import IconChevron from "../icons/IconChevron";
 
 export default function CareerCard({ item }: { item: CareerItem }) {
   // 아코디언 상태
@@ -27,14 +26,14 @@ export default function CareerCard({ item }: { item: CareerItem }) {
           <h3 className="text-body text-text">{item.title}</h3>
 
           <div className="text-description text-subtext flex items-center gap-2">
-            <IconCalendar className="h-4 w-4" />
+            <CalendarIcon className="h-4 w-4" />
             <span>{item.period}</span>
             <CareerTypeBlock type={item.type} />
           </div>
         </header>
 
         <div className="text-description text-subtext mt-1 flex items-center gap-2">
-          <IconBuilding className="h-4 w-4" />
+          <BuildingIcon className="h-4 w-4" />
           <span>{item.company}</span>
         </div>
 
@@ -54,7 +53,7 @@ export default function CareerCard({ item }: { item: CareerItem }) {
           className="text-description text-text hover:text-primary mt-3 inline-flex items-center gap-2 transition"
         >
           Contributions
-          <IconChevron
+          <ChevronIcon
             className={`h-4 w-4 transform-gpu transition-transform ${open ? "rotate-180" : "rotate-0"}`}
           />
         </button>

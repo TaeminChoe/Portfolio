@@ -1,4 +1,4 @@
-import { ArticleItem, ProjectItem, PulginItem, RouteItem } from "@/types";
+import { ArticleItem, ProjectItem, PulginItem, RouteItem, SkillItem } from "@/types";
 
 export const ROUTES: RouteItem[] = [
   { url: "/", name: "Dashboard" },
@@ -54,22 +54,26 @@ export const PROJECTS: ProjectItem[] = [
     tags: ["Next.js", "Django", "i18next", "Email"],
     status: "published",
   },
-  {
-    href: "z-iot",
-    name: "Z‑IoT",
-    role: "Frontend Engineer",
-    period: "2024.01–2025.06",
-    summary: "IoT 펌웨어 분석 결과 대시보드 / 리포트 자동화 / 멀티 테넌트.",
-    tags: ["Next.js", "Tailwind", "Django", "PostgreSQL", "Report/PDF"],
-    status: "published",
-  },
-  {
-    href: "z-one",
-    name: "Z‑ONE 2.0",
-    role: "Frontend Engineer",
-    period: "2025.02–",
-    summary: "멀티 테넌트 보안 플랫폼, 라우팅 E2E 검증·역할 기반 UX.",
-    tags: ["Next.js", "Docker", "Cypress", "RBAC"],
-    status: "published",
-  },
 ];
+
+export const SKILLS: Record<string, SkillItem[]> = {
+  Front: [
+    { name: "React", level: "High" },
+    { name: "Next.js", level: "High" },
+    { name: "TypeScript", level: "High" },
+    { name: "TailwindCSS", level: "High" },
+    { name: "React Query", level: "Medium" },
+  ],
+  Util: [
+    { name: "Figma", level: "Medium" },
+    { name: "Git/GitHub", level: "Medium" },
+    { name: "Cypress", level: "Medium" },
+    { name: "i18next", level: "Medium" },
+  ],
+  Devops: [
+    { name: "AWS (EC2, Route53)", level: "Low" },
+    { name: "Docker", level: "Medium" },
+    { name: "CI/CD (GitHub Actions)", level: "Medium" },
+    { name: "PostgreSQL", level: "Low" },
+  ],
+};

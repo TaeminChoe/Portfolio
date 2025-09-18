@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import stripIndent from "strip-indent";
 import hljs from "highlight.js/lib/core";
 import ts from "highlight.js/lib/languages/typescript";

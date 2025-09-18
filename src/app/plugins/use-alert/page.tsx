@@ -6,9 +6,9 @@ import stripIndent from "strip-indent";
 import { useAlert } from "@/features/alerts";
 import { ComponentItem } from "@/types";
 import AlertButton from "@/features/alerts/components/AlertButton";
-import IconChevron from "@/components/icons/IconChevron";
 import ComponentCard from "@/components/common/ComponentCard";
 import ComponentViewer from "@/components/common/ComponentViewer";
+import ChevronIcon from "@/components/icons/ChevronIcon";
 
 export default function Page() {
   const { openAlert, openConfirmAlert } = useAlert();
@@ -190,7 +190,7 @@ export default function Page() {
                     className="text-description text-primary mt-2 inline-flex items-center gap-2"
                   >
                     <span>Open Demo</span>
-                    <IconChevron className="h-4 w-4 rotate-270" />
+                    <ChevronIcon className="h-4 w-4 rotate-270" />
                   </Link>
                 )}
               </div>

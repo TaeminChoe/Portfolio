@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export default function IconCode(props: SVGProps<SVGSVGElement>) {
+export default function CodeIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
       <path d="M9 18l-6-6 6-6" stroke="currentColor" />

@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import { cx } from "@/utils";
 import { ComponentItem } from "@/types";
-import IconPlay from "../icons/IconPlay";
-import IconCode from "../icons/IconCode";
+import { CodeIcon, PlayIcon } from "../icons";
 import CodeBlock from "./CodeBlock";
 
 export default function ComponentViewer({ component }: { component: ComponentItem }) {
@@ -45,7 +44,7 @@ export default function ComponentViewer({ component }: { component: ComponentIte
             onClick={() => setTab("preview")}
           >
             <span className="inline-flex items-center gap-1">
-              <IconPlay /> Preview
+              <PlayIcon /> Preview
             </span>
           </button>
           <button
@@ -58,7 +57,7 @@ export default function ComponentViewer({ component }: { component: ComponentIte
             onClick={() => setTab("code")}
           >
             <span className="inline-flex items-center gap-1">
-              <IconCode /> Code
+              <CodeIcon /> Code
             </span>
           </button>
         </div>
