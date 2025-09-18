@@ -1,17 +1,9 @@
 "use client";
-import React from "react";
 import Link from "next/link";
 
+import LevelTag from "@/components/common/LevelTag";
 import { PROJECTS, SKILLS } from "@/constants";
 import Image from "next/image";
-import LevelTag from "@/components/common/LevelTag";
-
-const CONTACT = {
-  phone: "010-7192-4370",
-  email: "xoa28@naver.com",
-  // github: "https://github.com/username",
-  // linkedin: "https://linkedin.com/in/username",
-};
 
 export default function DashboardPage() {
   return (
@@ -101,7 +93,10 @@ export default function DashboardPage() {
                   <ul className="mt-2 space-y-2" role="list">
                     {SKILLS[key].map((skill) => {
                       return (
-                        <li className="text-body text-subtext flex items-center justify-between">
+                        <li
+                          key={`${key}/${skill.name}`}
+                          className="text-body text-subtext flex items-center justify-between"
+                        >
                           <span>{skill.name}</span>
                           <LevelTag level={skill.level} />
                         </li>

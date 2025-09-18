@@ -1,5 +1,5 @@
-import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -33,13 +33,14 @@ const config = [
       "@next/next/no-html-link-for-pages": "off",
 
       // TS 편의
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-      ],
+      // "@typescript-eslint/no-unused-vars": [
+      //   "warn",
+      //   { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      // ],
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/ban-ts-comment": ["warn", { "ts-ignore": "allow-with-description" }],
+      "@typescript-eslint/no-unused-vars": ["warn", { args: "none" }],
 
       // 일반
       "no-undef": "off",

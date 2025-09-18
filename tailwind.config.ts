@@ -1,3 +1,4 @@
+import typography from "@tailwindcss/typography";
 import plugin from "tailwindcss/plugin";
 
 const config = {
@@ -106,7 +107,7 @@ const config = {
         },
       });
     }),
-    require("@tailwindcss/typography"),
+    typography,
   ],
 };
 

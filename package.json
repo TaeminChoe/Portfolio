@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --quiet",
     "lint:strict": "eslint . --max-warnings=0",
     "lint:prod": "cross-env NODE_ENV=production eslint . --max-warnings=0",
     "format": "prettier --write .",
