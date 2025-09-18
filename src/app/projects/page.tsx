@@ -1,10 +1,10 @@
 "use client";
-import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 
-import { cx } from "@/utils";
-import { PROJECTS } from "@/constants";
 import KeywordTag from "@/components/common/KeywordTag";
+import { PROJECTS } from "@/constants";
+import { cx } from "@/utils";
 
 export default function ProjectsPage() {
   const [query, setQuery] = useState("");
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="bg-background text-text min-h-dvh">
-      <div className="mx-auto w-[1024px] max-w-[1024px] px-4 py-8 lg:px-6 lg:py-10">
+      <div className="mx-auto px-4 py-8 lg:w-[1024px] lg:max-w-[1024px] lg:px-6 lg:py-10">
         <header className="mb-6 lg:mb-8" aria-label="Projects Header">
           <h1 className="text-title">Projects</h1>
           <p className="text-description text-subtext mt-1">

@@ -33,8 +33,10 @@ export default async function ArticlePage({ params }: Props) {
   if (!contents) notFound();
 
   return (
-    <div className="prose prose-invert mx-auto max-w-[800px] px-4 py-10">
-      <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{contents}</ReactMarkdown>
+    <div className="mx-auto w-full px-4 py-8 lg:max-w-[1024px] lg:px-6 lg:py-10">
+      <article className="prose prose-invert prose-sm sm:prose-base lg:prose-lg max-w-none break-all">
+        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{contents}</ReactMarkdown>
+      </article>
     </div>
   );
 }

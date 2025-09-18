@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function DashboardPage() {
   return (
     <main className="bg-background text-text min-h-dvh">
-      <div className="mx-auto w-[1024px] max-w-[1024px] px-4 py-8 lg:px-6 lg:py-10">
+      <div className="mx-auto px-4 py-8 lg:w-[1024px] lg:max-w-[1024px] lg:px-6 lg:py-10">
         <header className="mb-6 lg:mb-8">
           <h1 className="text-title">Dashboard</h1>
         </header>

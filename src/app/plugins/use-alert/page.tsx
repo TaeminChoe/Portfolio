@@ -1,14 +1,14 @@
 "use client";
-import React, { useMemo } from "react";
 import Link from "next/link";
+import { useMemo } from "react";
 import stripIndent from "strip-indent";
 
-import { useAlert } from "@/features/alerts";
-import { ComponentItem } from "@/types";
-import AlertButton from "@/features/alerts/components/AlertButton";
 import ComponentCard from "@/components/common/ComponentCard";
 import ComponentViewer from "@/components/common/ComponentViewer";
 import ChevronIcon from "@/components/icons/ChevronIcon";
+import { useAlert } from "@/features/alerts";
+import AlertButton from "@/features/alerts/components/AlertButton";
+import { ComponentItem } from "@/types";
 
 export default function Page() {
   const { openAlert, openConfirmAlert } = useAlert();
@@ -137,7 +137,7 @@ export default function Page() {
 
   return (
     <main className="bg-background text-text min-h-dvh">
-      <div className="mx-auto w-[1024px] max-w-[1024px] px-4 py-8 lg:px-6 lg:py-10">
+      <div className="mx-auto px-4 py-8 lg:w-[1024px] lg:max-w-[1024px] lg:px-6 lg:py-10">
         <header className="mb-6 lg:mb-8" aria-label="Plugins Header">
           <h1 className="text-title">useAlert</h1>
           <p className="text-description text-subtext mt-5">

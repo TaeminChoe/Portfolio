@@ -1,10 +1,10 @@
 "use client";
-import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import { useMemo, useState } from "react";
 
+import KeywordTag from "@/components/common/KeywordTag";
 import { ARTICLES } from "@/constants";
 import { cx, formatDate } from "@/utils";
-import KeywordTag from "@/components/common/KeywordTag";
 
 // Unique tag list
 const ALL_TAGS = Array.from(new Set(ARTICLES.flatMap((a) => a.tags))).sort();
@@ -37,7 +37,7 @@ export default function ArticlesIndexPage() {
 
   return (
     <main className="bg-background text-text min-h-dvh">
-      <div className="mx-auto w-[1024px] max-w-[1024px] px-4 py-8 lg:px-6 lg:py-10">
+      <div className="mx-auto px-4 py-8 lg:w-[1024px] lg:max-w-[1024px] lg:px-6 lg:py-10">
         <header className="mb-6 lg:mb-8" aria-label="Articles Header">
           <h1 className="text-title">Articles</h1>
           <p className="text-description text-subtext mt-1">

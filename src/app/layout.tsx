@@ -1,10 +1,10 @@
-import "./globals.css";
 import { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans_KR, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Noto_Sans_KR } from "next/font/google";
+import "./globals.css";
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import Provider from "@/components/common/Provider";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import "highlight.js/styles/github-dark.css";
 
 const inter = Inter({
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Provider>
           <Header />
-          <main id="main" className="mx-auto max-w-[1024px] px-4 py-8 lg:px-6">
+          <main id="main" className="mx-auto w-full px-4 py-8 lg:max-w-[1024px] lg:px-6">
             {children}
           </main>
           <Footer />
