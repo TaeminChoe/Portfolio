@@ -18,7 +18,7 @@ export default function DashboardPage() {
             aria-label="Profile"
             className="border-border bg-surface rounded-2xl border p-5 transition-transform hover:-translate-y-0.5 hover:shadow-lg lg:col-span-1 lg:p-6"
           >
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-5 lg:gap-10">
               {/* 왼쪽: 프로필 이미지 */}
               <figure className="border-border bg-background h-[120px] w-[120px] overflow-hidden rounded-2xl border">
                 <Image
@@ -34,10 +34,19 @@ export default function DashboardPage() {
               {/* 오른쪽: 프로필 텍스트 */}
               <div className="min-w-0">
                 <h2 className="text-section text-text">Profile</h2>
-                <p className="text-body text-subtext mt-1">최태민 · Front-end Engineer</p>
-                <p className="text-body text-subtext mt-2">생년월일 : 1996년 6월 28일</p>
-                <p className="text-body text-subtext mt-2">Phone : 010-7192-4370</p>
-                <p className="text-body text-subtext mt-2">Email : xoa28@naver.com</p>
+                <p className="text-body text-subtext mt-1">
+                  최태민 · <br className="lg:hidden" />
+                  Front-end Engineer
+                </p>
+                <p className="text-body text-subtext mt-2">
+                  생년월일 :<br className="lg:hidden" /> 1996년 6월 28일
+                </p>
+                <p className="text-body text-subtext mt-2">
+                  Phone :<br className="lg:hidden" /> 010-7192-4370
+                </p>
+                <p className="text-body text-subtext mt-2">
+                  Email :<br className="lg:hidden" /> xoa28@naver.com
+                </p>
               </div>
             </div>
           </section>

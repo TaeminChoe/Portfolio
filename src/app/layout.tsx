@@ -51,6 +51,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       className={`${inter.variable} ${notoKR.variable} ${jetbrains.variable}`}
     >
+      <head>
+        <meta
+          property="og:image"
+          content="https://images.pexels.com/photos/33802181/pexels-photo-33802181.jpeg"
+        ></meta>
+        <meta property="og:site_name" content="Portfolio - TaeminChoe"></meta>
+        <meta property="og:title" content="포트폴리오 - 최태민"></meta>
+        <meta property="og:description" content="프론트엔드 개발하고 있는 최태민입니다." />
+        <meta property="og:url" content="https://portfolio-blond-kappa-16.vercel.app/"></meta>
+      </head>
       <body
         className={`bg-background text-text selection:bg-primary/20 selection:text-text flex min-h-dvh flex-col antialiased`}
       >
