@@ -13,6 +13,7 @@ export interface CareerItem {
   role: string;
   contributions: string[];
   techStack: string[];
+  keyProject?: boolean;
 }
 
 export interface ArticleItem {

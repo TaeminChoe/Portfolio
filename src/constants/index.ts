@@ -1,10 +1,10 @@
-import { ArticleItem, ProjectItem, PulginItem, RouteItem, SkillItem } from "@/types";
+import { ArticleItem, PulginItem, RouteItem, SkillItem } from "@/types";
 
 export const ROUTES: RouteItem[] = [
   { url: "/", name: "Dashboard" },
   { url: "/career", name: "Career" },
   { url: "/projects", name: "Projects" },
-  { url: "/plugins", name: "Plugins" },
+  // { url: "/plugins", name: "Plugins" },
   { url: "/articles", name: "Articles" },
 ];
 
@@ -43,15 +43,54 @@ export const PLUGINS: PulginItem[] = [
     tags: ["ui", "alert"],
   },
 ];
-
-export const PROJECTS: ProjectItem[] = [
+export const PROJECTS = [
+  {
+    href: "z-one",
+    name: "Z-ONE",
+    role: "PM / Full-stack Engineer",
+    period: "2024.11–2025.10(예정)",
+    summary:
+      "보안 컨설팅 솔루션 마이그레이션 및 고도화 시리즈. Vue/Spring → Next.js/Django 전환, 신규 기능 기획·POC·디자인 시스템 구축.",
+    tags: ["Next.js", "Django", "TypeScript", "TailwindCSS", "Figma", "GCP", "Docker"],
+    status: "published",
+  },
+  {
+    href: "zien-ops",
+    name: "ZIEN Ops",
+    role: "Full-stack Engineer",
+    period: "2024.10–현재",
+    summary:
+      "ZIEN 홈페이지·Z-IoT 솔루션 운영 및 개선. Node 서버 및 인증서 자동화, CI/CD, 배포 환경 관리.",
+    tags: ["Next.js", "NestJS", "Node.js", "Docker", "Cypress", "GitHub Actions", "AWS EC2"],
+    status: "published",
+  },
   {
     href: "z-red",
-    name: "Z‑RED",
+    name: "Z-RED",
     role: "Frontend Engineer",
-    period: "2025.03–",
-    summary: "RED 3.3 / EN 303 645 체크리스트 기반 내부 솔루션 (다국어·권한·SMTP 프로파일).",
-    tags: ["Next.js", "Django", "i18next", "Email"],
+    period: "2025.06–2025.07",
+    summary: "유럽 RED 규제 대응 자가진단 설문 웹앱. 반응형 설계 및 MOU 체결 성과 기여.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    status: "published",
+  },
+  {
+    href: "z-sentinel",
+    name: "Z-Sentinel",
+    role: "Frontend Engineer",
+    period: "2025.02–2025.03",
+    summary:
+      "SECON 2025 출품용 네트워크 취약점 분석 솔루션 MVP. Topology 시각화 및 대용량 렌더링 성능 검증.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Amplify", "WebGL"],
+    status: "published",
+  },
+  {
+    href: "sk-smartlink",
+    name: "SK Smartlink",
+    role: "Frontend Engineer",
+    period: "2022.11–2023.06",
+    summary:
+      "차량 카셰어링 사용자 웹앱. 기존 3개 앱을 통합하고 예약·변경 등 핵심 기능 개발, GraphQL 기반 API 연동 경험.",
+    tags: ["React", "Redux", "GraphQL", "Apollo"],
     status: "published",
   },
 ];
