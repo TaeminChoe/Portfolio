@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import path from "path";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 
 interface Props {
   params: { slug: string };
@@ -35,7 +36,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <div className="mx-auto w-full px-4 py-8 lg:max-w-[1024px] lg:px-6 lg:py-10">
       <article className="prose prose-invert prose-sm sm:prose-base lg:prose-lg max-w-none break-all">
-        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{contents}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeHighlight, rehypeRaw]}>{contents}</ReactMarkdown>
       </article>
     </div>
   );
