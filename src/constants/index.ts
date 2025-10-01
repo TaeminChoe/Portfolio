@@ -64,35 +64,35 @@ export const PROJECTS = [
     tags: ["Next.js", "NestJS", "Node.js", "Docker", "Cypress", "GitHub Actions", "AWS EC2"],
     status: "published",
   },
-  {
-    href: "z-red",
-    name: "Z-RED",
-    role: "Frontend Engineer",
-    period: "2025.06–2025.07",
-    summary: "유럽 RED 규제 대응 자가진단 설문 웹앱. 반응형 설계 및 MOU 체결 성과 기여.",
-    tags: ["Next.js", "TypeScript", "TailwindCSS"],
-    status: "published",
-  },
-  {
-    href: "z-sentinel",
-    name: "Z-Sentinel",
-    role: "Frontend Engineer",
-    period: "2025.02–2025.03",
-    summary:
-      "SECON 2025 출품용 네트워크 취약점 분석 솔루션 MVP. Topology 시각화 및 대용량 렌더링 성능 검증.",
-    tags: ["Next.js", "TypeScript", "TailwindCSS", "Amplify", "WebGL"],
-    status: "published",
-  },
-  {
-    href: "sk-smartlink",
-    name: "SK Smartlink",
-    role: "Frontend Engineer",
-    period: "2022.11–2023.06",
-    summary:
-      "차량 카셰어링 사용자 웹앱. 기존 3개 앱을 통합하고 예약·변경 등 핵심 기능 개발, GraphQL 기반 API 연동 경험.",
-    tags: ["React", "Redux", "GraphQL", "Apollo"],
-    status: "published",
-  },
+  // {
+  //   href: "z-red",
+  //   name: "Z-RED",
+  //   role: "Frontend Engineer",
+  //   period: "2025.06–2025.07",
+  //   summary: "유럽 RED 규제 대응 자가진단 설문 웹앱. 반응형 설계 및 MOU 체결 성과 기여.",
+  //   tags: ["Next.js", "TypeScript", "TailwindCSS"],
+  //   status: "published",
+  // },
+  // {
+  //   href: "z-sentinel",
+  //   name: "Z-Sentinel",
+  //   role: "Frontend Engineer",
+  //   period: "2025.02–2025.03",
+  //   summary:
+  //     "SECON 2025 출품용 네트워크 취약점 분석 솔루션 MVP. Topology 시각화 및 대용량 렌더링 성능 검증.",
+  //   tags: ["Next.js", "TypeScript", "TailwindCSS", "Amplify", "WebGL"],
+  //   status: "published",
+  // },
+  // {
+  //   href: "sk-smartlink",
+  //   name: "SK Smartlink",
+  //   role: "Frontend Engineer",
+  //   period: "2022.11–2023.06",
+  //   summary:
+  //     "차량 카셰어링 사용자 웹앱. 기존 3개 앱을 통합하고 예약·변경 등 핵심 기능 개발, GraphQL 기반 API 연동 경험.",
+  //   tags: ["React", "Redux", "GraphQL", "Apollo"],
+  //   status: "published",
+  // },
 ];
 
 export const SKILLS: Record<string, SkillItem[]> = {
